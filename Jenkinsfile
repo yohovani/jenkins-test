@@ -6,9 +6,7 @@ pipeline {
     }
 
     stages {
-        stage('Identify User'){
-            sh 'whoami'
-        }
+        sh 'whoami'
         stage('Copy files to local machine') {
             steps {
                 // Copy files to mounted volume
