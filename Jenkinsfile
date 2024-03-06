@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("stage 1"){
             steps {
-                cp -Rp index.html /var/www/html/test/index.html
+                sh "cp index.html /var/www/html/test/index.html"
             }
         }
         stage("stage 2"){
