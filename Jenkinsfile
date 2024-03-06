@@ -1,7 +1,6 @@
 pipeline {
     agent {
-        docker {
-            image 'your-jenkins-image:tag'
+        any {
             args '-v /var/www/html/test:/mnt'
         }
     }
