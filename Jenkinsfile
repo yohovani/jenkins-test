@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage("stage 1"){
             steps {
-                scp index.html yoho@DESKTOP-T3B4B99:/var/www/html/test/index.html
+                scp "index.html yoho@DESKTOP-T3B4B99:/var/www/html/test/index.html"
             }
         }
         stage("stage 2"){
