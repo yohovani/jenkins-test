@@ -6,9 +6,9 @@ pipeline {
     }
 
     stages {
-        sh 'whoami'
         stage('Copy files to local machine') {
             steps {
+                sh 'whoami'
                 // Copy files to mounted volume
                 script {
                     sh 'cp -r * /mnt'
