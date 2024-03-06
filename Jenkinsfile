@@ -1,30 +1,28 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'your-jenkins-image:tag'
+            args '-v /var/www/html/test:/mnt'
+        }
+    }
+
     stages {
-        stage("stage 1"){
+        stage('Copy files to local machine') {
             steps {
-                scp "index.html yoho@DESKTOP-T3B4B99:/var/www/html/test/index.html"
+                // Copy files to mounted volume
+                script {
+                    sh 'cp -r * /mnt'
+                }
             }
         }
-        stage("stage 2"){
-            steps {
-                echo "this is a stage 2"
-            }
+    }
+
+    post {
+        success {
+            echo 'Pipeline successfully executed!'
         }
-        stage("stage 3"){
-            steps {
-                echo "this is a stage 3"
-            }
-        }
-        stage("stage 4"){
-            steps {
-                echo "this is a stage 4"
-            }
-        }
-        stage("stage 5"){
-            steps {
-                echo "this is a stage 5"
-            }
+        failure {
+            echo 'Pipeline failed!'
         }
     }
 }
