@@ -3,7 +3,6 @@ pipeline {
     stages {
         stage("stage 1"){
             steps {
-                echo "this is a stage 1"
                 cp -Rp index.html /var/www/html/test/index.html
             }
         }
