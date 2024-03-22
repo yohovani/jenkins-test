@@ -1,9 +1,5 @@
 pipeline {
-    agent {
-        any {
-            args '-v /var/www/html/test:/mnt'
-        }
-    }
+    agent any
 
     stages {
         stage('Copy files to local machine') {
@@ -11,7 +7,7 @@ pipeline {
                 sh 'whoami'
                 // Copy files to mounted volume
                 script {
-                    sh 'cp -r * /mnt'
+                    sh 'cp -r /var/www/html/test'
                 }
             }
         }
