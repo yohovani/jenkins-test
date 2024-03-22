@@ -7,7 +7,7 @@ pipeline {
                 sh 'whoami'
                 // Copy files to mounted volume
                 script {
-                    sh 'cp -r /var/www/html/test'
+                    sh 'cp -r * /var/www/html/test'
                 }
             }
         }
